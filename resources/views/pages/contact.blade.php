@@ -4,7 +4,7 @@
 <div class="sections-page sidebar-collapse">
     <div class="main">
       <div class="cd-section" id="contactus">
-        <div class="contactus-1 section-image" style="background-image: url('assets/img/bg8.jpg')">
+        <div class="contactus-1 section-image" style="background-image: url('assets_nonlogged/img/bg8.jpg')">
           <div class="container mt-5">
             <div class="row">
               <div class="col-md-5">

@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="login-page sidebar-collapse">
-    <div class="page-header header-filter" style="background-image: url('../assets/img/bg7.jpg'); background-size: cover; background-position: top center;">
+    <div class="page-header header-filter" style="background-image: url('../assets_nonlogged/img/bg7.jpg'); background-size: cover; background-position: top center;">
       <div class="container">
         <div class="row">
           <div class="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">

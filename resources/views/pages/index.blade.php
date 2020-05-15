@@ -1,7 +1,7 @@
 @extends('layouts.app_nonlogged')
 @section('content')
 <div class="landing-page sidebar-collapse">
-    <div class="page-header header-filter" data-parallax="true" style="background-image: url('../assets/img/bg8.jpg')">
+    <div class="page-header header-filter" data-parallax="true" style="background-image: url('../assets_nonlogged/img/bg8.jpg')">
       <div class="container">
         <div class="row">
           <div class="col-md-6">
