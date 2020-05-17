@@ -110,6 +110,8 @@
         </div>
     </div>
     <div class="space-50"></div>
+    <a href="/notes" class="btn btn-purple float-right">Notes</a>
+    <div class="space-50"></div>
     <h3 class="text-center text " style="color: white;">Please Choose your Semester</h3>
     <div class="row justify-content-center">
       <div class="top-droppable folder tooltiper tooltiper-up" data-tooltip="0 file" id="folder2"><i class="fa fa-folder" aria-hidden="true"></i><i class="fa fa-check" aria-hidden="true"></i><p>Semester 1</p></div>

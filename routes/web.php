@@ -24,6 +24,4 @@ Route::get('/contact', function () {
     return view('pages.contact');
 });
 
-Route::get('/notes','NoteController@index');
-Route::get('/notes/create','Notecontroller@create');
-Route::get('/notes/{id}/edit','Notecontroller@edit');
+Route::resource('notes','NoteController');

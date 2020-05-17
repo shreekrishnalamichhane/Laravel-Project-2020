@@ -17,6 +17,5 @@ Colab Learning
 <link rel="stylesheet" href="{{asset('assets_logged/css/folder.css')}}">
 <link rel="stylesheet" href="{{asset('assets_logged/css/style.css')}}">
 
-  @yield('stylesheet')
 
 

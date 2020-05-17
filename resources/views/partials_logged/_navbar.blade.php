@@ -42,20 +42,24 @@
           <a href="/contact" class="nav-link waves-effect"><i class="fas fa-envelope"></i> <span class="clearfix d-none d-sm-inline-block">Contact</span></a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle waves-effect" href="#" id="userDropdown" data-toggle="dropdown"aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-user"></i> <span class="clearfix d-none d-sm-inline-block">Profile</span>
-          </a>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                document.getElementById('logout-form').submit();">
-                {{ __('Logout') }}
+            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre><i class="fas fa-user"></i>
+                {{ Auth::user()->name }} <span class="caret"></span>
             </a>
-            <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                style="display: none;">
-                @csrf
-            </form>
-            <a class="dropdown-item" href="#">My account</a>
-          </div>
+
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/profile" >
+                    Profile
+                </a>
+                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                    {{ __('Logout') }}
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                    style="display: none;">
+                    @csrf
+                </form>
+            </div>
         </li>
 
       </ul>

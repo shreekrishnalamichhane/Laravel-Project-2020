@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Note;
+use Illuminate\Support\Facades\Storage;
 
 class NoteController extends Controller
 {
@@ -11,9 +13,18 @@ class NoteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        return $this->middleware('auth');
+    }
+
+
     public function index()
     {
-        return view('notes.index');
+        $notes = auth()->user()->notes;
+        // $notes = Note::all();
+        // $notes = Note::orderBy('created_at','desc');
+        return view('notes.index')->withNotes($notes);
 
     }
 
@@ -35,7 +46,37 @@ class NoteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'title'=>'required|max:100|min:10',
+            'description'=>'required',
+            'pdf_file' => 'required|max:1999'
+        ]);
+
+        //handle file upload
+        if($request->hasFile('pdf_file')){
+            //get file name with the extension
+            $fileNameWithExt = $request->file('pdf_file')->getClientOriginalName();
+
+            //get just file name
+            $fileName = pathinfo($fileNameWithExt,PATHINFO_FILENAME);
+            //ger=t just extension
+            $extension = $request->file('pdf_file')->getClientOriginalExtension();
+            //Filename to Store
+            $fileNameToStore = $fileName .'_'.time(). '.'. $extension;
+            //Upload file
+            $path = $request->file('pdf_file')->storeAs('public/pdf_files', $fileNameToStore);
+        }
+
+        $note = new Note;
+        $note->title=$request->title;
+        $note->description=$request->description;
+        $note->user_id = auth()->user()->id;
+        $note->pdf_file = $fileNameToStore;
+        $note->save();
+        session()->flash('success','Note Created successfully.');
+        return redirect()->route('notes.index');
+
+
     }
 
     /**
@@ -46,7 +87,8 @@ class NoteController extends Controller
      */
     public function show($id)
     {
-        //
+        $note = Note::findOrFail($id);
+        return view('notes.show')->withNote($note);
     }
 
     /**
@@ -57,7 +99,8 @@ class NoteController extends Controller
      */
     public function edit($id)
     {
-        return view('notes.edit');
+        $note = Note::findOrFail($id);
+        return view('notes.edit')->withNote($note);
     }
 
     /**
@@ -69,7 +112,37 @@ class NoteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'title'=>'required|max:100|min:10',
+            'description'=>'required',
+            'pdf_file' => 'max:1999'
+        ]);
+            //handle file upload
+        if($request->hasFile('pdf_file')){
+            //get file name with the extension
+            $fileNameWithExt = $request->file('pdf_file')->getClientOriginalName();
+
+            //get just file name
+            $fileName = pathinfo($fileNameWithExt,PATHINFO_FILENAME);
+            //ger=t just extension
+            $extension = $request->file('pdf_file')->getClientOriginalExtension();
+            //Filename to Store
+            $fileNameToStore = $fileName .'_'.time(). '.'. $extension;
+            //Upload file
+            $path = $request->file('pdf_file')->storeAs('public/pdf_files', $fileNameToStore);
+        }
+
+
+        $note = Note::find($id);
+        $note->title=$request->input('title');
+        $note->description=$request->input('description');
+        if($request->hasFile('pdf_file')){
+            Storage::delete('public/pdf_files/'.$note->pdf_file);
+            $note->pdf_file = $fileNameToStore;
+        }
+        $note->save();
+        session()->flash('success','Note updated successfully.');
+        return redirect()->route('notes.index');
     }
 
     /**
@@ -80,6 +153,10 @@ class NoteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $note = Note::find($id);
+        Storage::delete('public/pdf_files/'.$note->pdf_file);
+        $note -> delete();
+        session()->flash('success','Note Deleted Successfully');
+        return redirect()->route('notes.index');
     }
 }

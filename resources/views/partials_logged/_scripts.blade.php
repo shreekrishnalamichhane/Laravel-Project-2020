@@ -1,4 +1,3 @@
-    @yield('additional_scripts')
     <script src="{{asset('tinymce/tinymce.min.js')}}"></script>
     <script src="{{asset('tinymce/init-tinymce.js')}}"></script>
 
@@ -9,7 +8,7 @@
     <script>
         new WOW().init();
     </script>
-<script>
+    <script>
 
     // SideNav Initialization
     $(".button-collapse").sideNav();

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateNotes extends Migration
+class CreateNotesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -16,12 +16,11 @@ class CreateNotes extends Migration
         Schema::create('notes', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->longText('description');
-            $table->string('semester');
-            $table->string('subject');
-            $table->
+            $table->text('description');
+            $table->unsignedBigInteger('user_id');
+            $table->index('user_id');
+            $table->string('pdf_file');
             $table->timestamps();
-            #
         });
     }
 
