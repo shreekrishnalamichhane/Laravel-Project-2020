@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Note;
+use App\Semester;
+use App\Subject;
 use Illuminate\Support\Facades\Storage;
 
 class NoteController extends Controller
@@ -21,8 +23,8 @@ class NoteController extends Controller
 
     public function index()
     {
-        $notes = auth()->user()->notes;
-        // $notes = Note::all();
+        // $notes = auth()->user()->notes;
+        $notes = Note::all();
         // $notes = Note::orderBy('created_at','desc');
         return view('notes.index')->withNotes($notes);
 
@@ -35,7 +37,9 @@ class NoteController extends Controller
      */
     public function create()
     {
-        return view('notes.create');
+        $semesters = Semester::all();
+        $subjects = Subject::all();
+        return view('notes.create')->withSemesters('$semesters')->withSubjects('$subjects');
     }
 
     /**
@@ -49,7 +53,7 @@ class NoteController extends Controller
         $this->validate($request,[
             'title'=>'required|max:100|min:10',
             'description'=>'required',
-            'pdf_file' => 'required|12000'
+            'pdf_file' => 'required'
         ]);
 
         //handle file upload

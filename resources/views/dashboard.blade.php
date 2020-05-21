@@ -65,8 +65,8 @@
             <div class="admin-up">
                 <i class="fas fa-chart-pie light-blue lighten-1 mr-3 z-depth-2 text-white"></i>
                 <div class="data">
-                <p class="text-uppercase text-white">traffic</p>
-                <h4 class="font-weight-bold dark-grey-text text-white">20000</h4>
+                <p class="text-uppercase text-white">Total Subjects</p>
+                <h4 class="font-weight-bold dark-grey-text text-white">{{count($subjects)}}</h4>
                 </div>
             </div>
 
@@ -111,17 +111,14 @@
     </div>
     <div class="space-50"></div>
     <a href="/notes" class="btn btn-purple float-right">Notes</a>
-    <div class="space-50"></div>
+    <a href="/semester" class="btn btn-purple float-right">Semester</a>
+    <a href="/subject" class="btn btn-purple float-right">Subject</a>
+    <div class="space-100"></div>
     <h3 class="text-center text " style="color: white;">Please Choose your Semester</h3>
     <div class="row justify-content-center">
-      <div class="top-droppable folder tooltiper tooltiper-up" data-tooltip="0 file" id="folder2"><i class="fa fa-folder" aria-hidden="true"></i><i class="fa fa-check" aria-hidden="true"></i><p>Semester 1</p></div>
-      <div class="top-droppable folder tooltiper tooltiper-up" data-tooltip="0 file" id="folder4"><i class="fa fa-folder" aria-hidden="true"></i><i class="fa fa-check" aria-hidden="true"></i><p>Semester 2</p></div>
-      <div class="top-droppable folder tooltiper tooltiper-up" data-tooltip="0 file" id="folder3"><i class="fa fa-folder" aria-hidden="true"></i><i class="fa fa-check" aria-hidden="true"></i><p>Semester 3</p></div>
-      <div class="top-droppable folder tooltiper tooltiper-up" data-tooltip="0 file" id="folder1"><i class="fa fa-folder" aria-hidden="true"></i><i class="fa fa-check" aria-hidden="true"></i><p>Semester 4</p></div>
-      <div class="top-droppable folder tooltiper tooltiper-up" data-tooltip="0 file" id="folder2"><i class="fa fa-folder" aria-hidden="true"></i><i class="fa fa-check" aria-hidden="true"></i><p>Semester 5</p></div>
-      <div class="top-droppable folder tooltiper tooltiper-up" data-tooltip="0 file" id="folder4"><i class="fa fa-folder" aria-hidden="true"></i><i class="fa fa-check" aria-hidden="true"></i><p>Semester 6</p></div>
-      <div class="top-droppable folder tooltiper tooltiper-up" data-tooltip="0 file" id="folder3"><i class="fa fa-folder" aria-hidden="true"></i><i class="fa fa-check" aria-hidden="true"></i><p>Semester 7</p></div>
-      <div class="top-droppable folder tooltiper tooltiper-up" data-tooltip="0 file" id="folder1"><i class="fa fa-folder" aria-hidden="true"></i><i class="fa fa-check" aria-hidden="true"></i><p>Semester 8</p></div>
+        @foreach ($semesters as $semester)
+    <a href="/semester/{{$semester->slug}}"><div class="top-droppable folder tooltiper tooltiper-up" data-tooltip="0 file" id="{{'folder'.($semester->id%4)}}"><i class="fa fa-folder" aria-hidden="true"></i><i class="fa fa-check" aria-hidden="true"></i><p>{{$semester->name}}</p></div></a>
+        @endforeach
     </div>
 </div>
 @endsection

@@ -5,6 +5,8 @@
     <script type="text/javascript" src="{{asset('assets_logged/js/popper.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets_logged/js/bootstrap.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets_logged/js/mdb.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets_logged/js/addons/datatables.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets_logged/js/addons/datatables-select.min.js')}}"></script>
     <script>
         new WOW().init();
     </script>

@@ -17,5 +17,8 @@ Colab Learning
 <link rel="stylesheet" href="{{asset('assets_logged/css/folder.css')}}">
 <link rel="stylesheet" href="{{asset('assets_logged/css/style.css')}}">
 
+<link rel="stylesheet" type="text/css" href="{{asset('assets_logged/css/addons/datatables.min.css')}}">
+<link rel="stylesheet" href="{{asset('assets_logged/css/addons/datatables-select.min.css')}}">
+
 
 

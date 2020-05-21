@@ -53,8 +53,8 @@ body{
   transform: translateY(6px);
   opacity: 1;
 }
-#folder1 i.fa-folder,
-#folder1-content h2 .fa-folder {
+#folder0 i.fa-folder,
+#folder0-content h2 .fa-folder {
   color: #ff5252 !important;
   /* color: #eb4141 !important; */
 }
@@ -68,8 +68,8 @@ body{
   /* color: #6fdbeb; */
   color: #29b6f6;
 }
-#folder4 i.fa-folder,
-#folder4-content h2 .fa-folder {
+#folder1 i.fa-folder,
+#folder1-content h2 .fa-folder {
   color: #fb3;
   /* color: #eeca4e; */
 }

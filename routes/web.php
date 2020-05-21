@@ -31,3 +31,5 @@ Route::get('/profile', function () {
 });
 
 Route::resource('semester','SemesterController');
+Route::resource('subject','SubjectController');
+

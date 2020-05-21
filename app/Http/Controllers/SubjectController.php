@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Subject;
 use App\Semester;
 
-class SemesterController extends Controller
+class SubjectController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,10 +15,9 @@ class SemesterController extends Controller
      */
     public function index()
     {
-        // $notes = auth()->user()->notes;
-        $semesters = Semester::all();
+        $subjects = Subject::all();
         // $notes = Note::orderBy('created_at','desc');
-        return view('semester.index')->withSemesters($semesters);
+        return view('subjects.index')->withSubjects($subjects);
     }
 
     /**
@@ -27,7 +27,8 @@ class SemesterController extends Controller
      */
     public function create()
     {
-        return view('semester.create');
+        $semester = Semester::all();
+        return view('subjects.create')->withSemesters($semester);
     }
 
     /**
@@ -39,13 +40,15 @@ class SemesterController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'name'=>'required|unique:semesters',
+            'name'=>'required',
+            'semester'=>'required',
         ]);
-        $semester = new Semester;
-        $semester->name=$request->name;
-        $semester->save();
-        session()->flash('success','Semester Added Successfully.');
-        return redirect()->route('semester.index');
+        $subject = new Subject;
+        $subject->name=$request->name;
+        $subject->semester_id=$request->semester;
+        $subject->save();
+        session()->flash('success','Subject Added Successfully.');
+        return redirect()->route('subject.index');
     }
 
     /**
@@ -56,8 +59,8 @@ class SemesterController extends Controller
      */
     public function show($id)
     {
-        $semester = Semester::findOrFail($id);
-        return view('notes.show')->withsemester($semester);
+        $subject = Subject::findOrFail($id);
+        return view('subjects.show')->withSubject($subject);
     }
 
     /**
@@ -68,8 +71,9 @@ class SemesterController extends Controller
      */
     public function edit($id)
     {
-        $semester = Semester::findOrFail($id);
-        return view('semester.edit')->withSemester($semester);
+        $subject = Subject::findOrFail($id);
+        $semester = Semester::all();
+        return view('subjects.edit')->withSubject($subject)->withSemesters($semester);
     }
 
     /**
@@ -82,13 +86,15 @@ class SemesterController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request,[
-            'name'=>'required|unique:semesters',
+            'name'=>'required',
+            'semester'=>'required',
         ]);
-        $semester = Semester::find($id);
-        $semester->name=$request->name;
-        $semester->save();
-        session()->flash('success','Semester Updated Successfully.');
-        return redirect()->route('semester.index');
+        $subject = Subject::find($id);
+        $subject->name=$request->name;
+        $subject->semester_id=$request->semester;
+        $subject->save();
+        session()->flash('success','Subject Updated Successfully.');
+        return redirect()->route('subject.index');
     }
 
     /**
@@ -99,9 +105,9 @@ class SemesterController extends Controller
      */
     public function destroy($id)
     {
-        $semester = Semester::find($id);
-        $semester -> delete();
-        session()->flash('success','Semester Deleted Successfully');
-        return redirect()->route('semester.index');
+        $subject = Subject::find($id);
+        $subject -> delete();
+        session()->flash('success','Subject Deleted Successfully');
+        return redirect()->route('subject.index');
     }
 }

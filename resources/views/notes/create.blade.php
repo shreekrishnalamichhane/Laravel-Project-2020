@@ -24,6 +24,12 @@ body{
                             <textarea type="text" id="description" name="description" class="md-textarea form-control" rows="3"></textarea>
                             <label for="description">Note Description</label>
                         </div>
+                        <select class="mdb-select colorful-select dropdown-info md-form col-lg-4 col-md-6 col-sm-12 " name="semester" id="semester" >
+                            <option value="" disabled selected>Choose Semester</option>
+                            @foreach ($semesters as $semester)
+                                <option value="{{$semester->id}}">{{$semester->name}}</option>
+                                @endforeach
+                          </select>
                         <div class="md-form">
                                 <h6 style="color: white;">Upload your file</h6>
                                 <input type="file" name="pdf_file" id="file" class="btn btn-secondary ">
