@@ -49,7 +49,7 @@ class NoteController extends Controller
         $this->validate($request,[
             'title'=>'required|max:100|min:10',
             'description'=>'required',
-            'pdf_file' => 'required|max:1999'
+            'pdf_file' => 'required|12000'
         ]);
 
         //handle file upload

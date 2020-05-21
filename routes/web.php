@@ -25,3 +25,9 @@ Route::get('/contact', function () {
 });
 
 Route::resource('notes','NoteController');
+
+Route::get('/profile', function () {
+    return view('pages.profile');
+});
+
+Route::resource('semester','SemesterController');

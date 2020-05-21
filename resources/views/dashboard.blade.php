@@ -11,20 +11,20 @@
 
             <!-- Card Data -->
             <div class="admin-up">
-                <i class="far fa-money-bill-alt primary-color mr-3 z-depth-2 text-white"></i>
+                <i class="fas fa-chart-line warning-color mr-3 z-depth-2 text-white"></i>
                 <div class="data">
-                <p class="text-uppercase text-white">sales</p>
-                <h4 class="font-weight-bold dark-grey-text text-white">2000$</h4>
+                <p class="text-uppercase text-white">Total Users</p>
+                <h4 class="font-weight-bold dark-grey-text text-white">{{count($user)}}</h4>
                 </div>
             </div>
 
             <!-- Card content -->
-            <div class="card-body card-body-cascade">
+            {{-- <div class="card-body card-body-cascade">
                 <div class="progress mb-3">
-                <div class="progress-bar bg-primary" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar red accent-2" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
-                <p class="card-text text-white">Better than last week (25%)</p>
-            </div>
+                <p class="card-text text-white">Worse than last week (25%)</p>
+            </div> --}}
 
             </div>
             <!-- Card -->
@@ -37,20 +37,20 @@
 
             <!-- Card Data -->
             <div class="admin-up">
-                <i class="fas fa-chart-line warning-color mr-3 z-depth-2 text-white"></i>
+                <i class="far fa-money-bill-alt primary-color mr-3 z-depth-2 text-white"></i>
                 <div class="data">
-                <p class="text-uppercase text-white">subscriptions</p>
-                <h4 class="font-weight-bold dark-grey-text text-white">200</h4>
+                <p class="text-uppercase text-white">Total Notes</p>
+                <h4 class="font-weight-bold dark-grey-text text-white">{{count($note)}}</h4>
                 </div>
             </div>
 
             <!-- Card content -->
-            <div class="card-body card-body-cascade">
+            {{-- <div class="card-body card-body-cascade">
                 <div class="progress mb-3">
-                <div class="progress-bar red accent-2" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar bg-primary" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
-                <p class="card-text text-white">Worse than last week (25%)</p>
-            </div>
+                <p class="card-text text-white">Better than last week (25%)</p>
+            </div> --}}
 
             </div>
             <!-- Card -->
@@ -71,12 +71,12 @@
             </div>
 
             <!-- Card content -->
-            <div class="card-body card-body-cascade">
+            {{-- <div class="card-body card-body-cascade">
                 <div class="progress mb-3">
                 <div class="progress-bar red accent-2" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
                 <p class="card-text text-white">Worse than last week (75%)</p>
-            </div>
+            </div> --}}
 
             </div>
             <!-- Card -->
@@ -97,12 +97,12 @@
             </div>
 
             <!-- Card content -->
-            <div class="card-body card-body-cascade">
+            {{-- <div class="card-body card-body-cascade">
                 <div class="progress mb-3">
                 <div class="progress-bar bg-primary" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
                 <p class="card-text text-white">Better than last week (25%)</p>
-            </div>
+            </div> --}}
 
             </div>
             <!-- Card -->

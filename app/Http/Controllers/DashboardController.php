@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Note;
+use App\User;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -23,6 +24,8 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('dashboard');
+        $note = Note::all();
+        $user = User::all();
+        return view('dashboard')->withUser($user)->withNote($note);
     }
 }

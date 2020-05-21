@@ -1,5 +1,11 @@
 @extends('layouts.app_logged')
-
+@section('additional_stylesheet')
+<style>
+body{
+    color: white;
+}
+</style>
+@endsection
 @section('content')
 <div class="login-page sidebar-collapse">
     <div class="page-header header-filter" style="background-image: url('../assets/img/bg7.jpg'); background-size:cover; background-position: top center;">
