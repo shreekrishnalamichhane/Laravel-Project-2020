@@ -32,7 +32,7 @@
                           <i class="material-icons">person_outline</i>
                         </span>
                       </div>
-                      <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" placeholder="Name..." name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                      <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" placeholder="Username..." name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
                       @error('name')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>

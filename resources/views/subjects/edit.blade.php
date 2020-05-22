@@ -6,7 +6,7 @@
     <div class="page-header header-filter" style="background-image: url('../assets/img/bg7.jpg'); background-size:cover; background-position: top center;">
         <div class="container">
             <div class="space-30"></div>
-            <h1 style="color: white;">Add a note</h1>
+            <h1 style="color: white;">Edit a Subject</h1>
             <div class="row">
                 <div class="col-lg-10 col-md-10 col-sm-12 ml-auto mr-auto">
                     {!! Form::model($subject,['route'=>['subject.update',$subject->id],'method'=>'POST','enctype'=> 'multipart/form-data']) !!}

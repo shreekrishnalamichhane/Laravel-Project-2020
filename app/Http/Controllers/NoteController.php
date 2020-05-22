@@ -29,6 +29,10 @@ class NoteController extends Controller
         return view('notes.index')->withNotes($notes);
 
     }
+    public function getSubjects($id){
+        $subjects = Subject::where('semester_id',$id)->pluck("name","id");
+        return json_encode($subjects);
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -39,7 +43,8 @@ class NoteController extends Controller
     {
         $semesters = Semester::all();
         $subjects = Subject::all();
-        return view('notes.create')->withSemesters('$semesters')->withSubjects('$subjects');
+        // return view('notes.create')->withSemesters('$semesters')->withSubjects('$subjects');
+        return view('notes.create')->with('semesters',$semesters)->with('subjects',$subjects);
     }
 
     /**
@@ -53,7 +58,9 @@ class NoteController extends Controller
         $this->validate($request,[
             'title'=>'required|max:100|min:10',
             'description'=>'required',
-            'pdf_file' => 'required'
+            'semester'=>'required',
+            'subject'=>'required',
+            'pdf_file' => 'required',
         ]);
 
         //handle file upload
@@ -74,6 +81,8 @@ class NoteController extends Controller
         $note = new Note;
         $note->title=$request->title;
         $note->description=$request->description;
+        $note->semester= $request->semester;
+        $note->subject= $request->subject;
         $note->user_id = auth()->user()->id;
         $note->pdf_file = $fileNameToStore;
         $note->save();
@@ -104,7 +113,9 @@ class NoteController extends Controller
     public function edit($id)
     {
         $note = Note::findOrFail($id);
-        return view('notes.edit')->withNote($note);
+        $semesters = Semester::all();
+        $subjects = Subject::all();
+        return view('notes.edit')->withNote($note)->with('semesters',$semesters)->with('subjects',$subjects);
     }
 
     /**
@@ -119,6 +130,8 @@ class NoteController extends Controller
         $this->validate($request,[
             'title'=>'required|max:100|min:10',
             'description'=>'required',
+            'semester'=>'required',
+            'subject'=>'required',
             'pdf_file' => 'max:1999'
         ]);
             //handle file upload
@@ -140,6 +153,8 @@ class NoteController extends Controller
         $note = Note::find($id);
         $note->title=$request->input('title');
         $note->description=$request->input('description');
+        $note->semester= $request->semester;
+        $note->subject= $request->subject;
         if($request->hasFile('pdf_file')){
             Storage::delete('public/pdf_files/'.$note->pdf_file);
             $note->pdf_file = $fileNameToStore;

@@ -15,15 +15,17 @@ body{
             <div class="row">
                 <div class="col-lg-10 col-md-12 col-sm-12 ml-auto mr-auto">
                     <p>{{$note->description}}</p>
-                    <a href="/storage/pdf_files/{{$note->pdf_file}}" class="btn btn-success btn-link-only btn-sm float-right" target="_blank">Open in seperate Window</a>
-                    <object data="/storage/pdf_files/{{$note->pdf_file}}" type="application/pdf" width="100%" height="260%;">
+                    <div class="row float-right mr-3">
+                        <a class="btn btn-yellow btn-sm btn-rounded" href="{{url('notes/')}}/{{$note->id}}/edit" class="btn btn-primary "><i class="fas fa-edit"></i> Edit</a>
+                        {!! Form::open(['route'=>['notes.destroy',$note->id],'method'=>'POST']) !!}
+                        @method('DELETE')
+                        <button type="submit" role="button" class="btn btn-danger btn-sm btn-rounded" value="Delete"><i class="fas fa-trash-alt"></i> Delete</button>
+                        {!! Form::close() !!}
+                    <a href="/storage/pdf_files/{{$note->pdf_file}}" class="btn btn-success btn-sm btn-rounded" target="_blank"><i class="fas fa-compress"></i> Open in seperate Window</a>
+                    </div>
+                    <object data="/storage/pdf_files/{{$note->pdf_file}}" type="application/pdf" width="100%" height="400%;">
                         <p>Alternative text - include a link <a href="/storage/pdf_files/{{$note->pdf_file}}">to the PDF!</a></p>
                     </object>
-                    <a class="btn btn-primary btn-sm" href="{{url('notes/')}}/{{$note->id}}/edit" class="btn btn-primary">Edit</a>
-                    {!! Form::open(['route'=>['notes.destroy',$note->id],'method'=>'POST']) !!}
-                    @method('DELETE')
-                    <button type="submit" role="button" class="btn btn-unique btn-sm" value="Delete">Delete</button>
-                    {!! Form::close() !!}
                 </div>
             </div>
         </div>

@@ -25,6 +25,15 @@ body{
                             <input type="text" id="description" name="description" class="md-textarea form-control" value="{{$note->description}}">
                             <label for="description">Note Description</label>
                         </div>
+                        <select class="mdb-select colorful-select dropdown-info md-form col-lg-4 col-md-5 col-sm-12 " name="semester" id="semester" >
+                            <option value="" disabled selected>Choose Semester</option>
+                            @foreach ($semesters as $semester)
+                                <option value="{{$semester->id}}">{{$semester->name}}</option>
+                            @endforeach
+                        </select>
+                        <select class="mdb-select colorful-select dropdown-info md-form col-lg-4 col-md-5 col-sm-12 " name="subject" id="subject" >
+                            <option value="" disabled selected>Choose Subject</option>
+                        </select>
                         <div class="space-10"></div>
                         <div class="md-form">
                             <h6 style="color: white;">Upload your file</h6>
@@ -40,14 +49,28 @@ body{
 </div>
 @endsection
 
-
-{{-- @section('content')
-<h1>Add New Blog</h1>
-{!! Form::open(['action'=>'PostController@store','method'=>'POST']) !!} <div class ="form-group">
-    {{Form::label('title','Title')}}
-    {{Form::text('title','', ['class'=>'form-control','placeholder'=>'Title Text'])}} </div> <div class ="form-group">
-    {{Form::label('content','Body')}}
-    {{Form::textarea('content','', ['class' => 'form-control','placeholder' => 'Body Text'])}} </div> <div class ="form-group">
-    {{Form::submit('submit',['class'=>'btn btn-primary'])}}
-    {!! Form::close() !!}
-@endsection --}}
+@section('additional_scripts')
+<script>
+    jQuery(document).ready(function(){
+        jQuery('select[name="semester"]').on('change',function(){
+            var semesterID = jQuery(this).val();
+            if(semesterID){
+                jQuery.ajax({
+                    url : '/getSubjects/' +semesterID,
+                    type : "GET",
+                    dataType : "json",
+                    success:function(data){
+                        jQuery('select[name="subject"]').empty();
+                        jQuery.each(data,function(key,value){
+                            $('select[name="subject"]').append('<option value="' + key + '">' + value + '</option>');
+                        });
+                    }
+                });
+            }
+            else{
+                $('select[name="subject"]').empty();
+            }
+        });
+    });
+</script>
+@endsection

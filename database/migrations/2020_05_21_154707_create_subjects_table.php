@@ -16,9 +16,8 @@ class CreateSubjectsTable extends Migration
         Schema::create('subjects', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('semester_id')->unsigned();
+            $table->integer('semester_id');
             $table->timestamps();
-            $table->foreign('semester_id')->references('id')->on('semesters');
         });
     }
 

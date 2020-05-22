@@ -30,14 +30,13 @@ body{
             <h4 class="mb-4" style="color: white;"><strong>{{$note->title}}</strong></h4>
         </a>
           <p>{{$note->description}}</p>
-          <p>by <a><strong>{{$note->user->name}}</strong></a>{{$note->created_at}}</p>
+          <p>by <a><strong>{{$note->user->name}} <br></strong></a>{{$note->created_at}}</p>
           <a href="{{url('/notes')}}/{{$note->id}}_{{$note->title}}" class="btn btn-primary">View Note</a>
 
         </div>
       </div>
       <div class="space-30"></div>
       @endforeach
-      {{-- {{dd($notes)}} --}}
     </section>
   </div>
 @endsection

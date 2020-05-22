@@ -1,6 +1,9 @@
 <?php
 
+use Facade\FlareClient\Http\Response;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Input;
+use App\Subject;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +28,8 @@ Route::get('/contact', function () {
 });
 
 Route::resource('notes','NoteController');
+Route::get('/getSubjects/{id}','NoteController@getSubjects')->name('getSubjects');
+
 
 Route::get('/profile', function () {
     return view('pages.profile');

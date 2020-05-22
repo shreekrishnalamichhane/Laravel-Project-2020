@@ -14,18 +14,12 @@
                 <div>
                     <thead>
                         <tr>
-                            <th>ID
-                            </th>
-                            <th>Name
-                            </th>
-                            <th>Notes
-                            </th>
-                            <th>Semester Id
-                            </th>
-                            <th>Updated At
-                            </th>
-                            <th>Created At
-                            </th>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Notes</th>
+                            <th>Semester Id</th>
+                            <th>Updated At</th>
+                            <th>Created At</th>
                             <th class="disabled-sorting">Actions
                             </th>
                         </tr>
@@ -42,11 +36,11 @@
                             <td>
                             <div class="row">
                                 <form action="{{url('subject/')}}/{{$subject->id}}/edit" >
-                                    <button type="submit" role="button" class="btn btn-green btn-rounded btn-sm px-3 text-white" value="Edit">Edit</button>
+                                    <button type="submit" role="button" class="btn btn-green btn-rounded btn-sm px-3 text-white " value="Edit"><i class="fas fa-edit"></i></button>
                                 </form>
                                 {!! Form::open(['route'=>['subject.destroy',$subject->id],'method'=>'POST']) !!}
                                     @method('DELETE')
-                                    <button type="submit" role="button" class="btn btn-danger btn-rounded btn-sm px-3" value="Delete">Delete</button>
+                                    <button type="submit" role="button" class="btn btn-danger btn-rounded btn-sm px-3" value="Delete"><i class="fas fa-trash-alt"></i></button>
                                 {!! Form::close() !!}
                             </div>
                             </td>
@@ -55,18 +49,12 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <th>ID
-                            </th>
-                            <th>Name
-                            </th>
-                            <th>Notes
-                            </th>
-                            <th>Semester Id
-                            </th>
-                            <th>Updated At
-                            </th>
-                            <th>Created At
-                            </th>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Notes</th>
+                            <th>Semester Id</th>
+                            <th>Updated At</th>
+                            <th>Created At</th>
                             <th class="disabled-sorting">Actions
                             </th>
                         </tr>
