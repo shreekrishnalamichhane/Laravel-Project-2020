@@ -11,4 +11,7 @@ class Semester extends Model
     public function subjects(){
         return $this->hasMany(Subject::class);
     }
+    public function notes(){
+        return $this -> hasMany(Note::class);
+    }
 }

@@ -4,6 +4,7 @@ use Facade\FlareClient\Http\Response;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Input;
 use App\Subject;
+use GuzzleHttp\Middleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,22 +20,26 @@ Route::get('/', function () {
     return view('index');
 });
 
-Auth::routes();
+Auth::routes(['verify'=>true]);
 
-Route::get('/dashboard', 'DashboardController@index')->name('home');
+Route::get('/dashboard', 'DashboardController@index')->name('home')->middleware('verified');
 
 Route::get('/contact', function () {
     return view('pages.contact');
 });
 
-Route::resource('notes','NoteController');
-Route::get('/getSubjects/{id}','NoteController@getSubjects')->name('getSubjects');
+Route::resource('notes','NoteController')->middleware('verified');
+Route::get('/notefilter/semester={semester1}&subject={subject1}','NoteController@notes_filter');
+Route::get('/subjectfilter/semester={semester1}','SubjectController@subjects_filter');
+Route::get('/getSubjects/{id}','NoteController@getSubjects')->name('getSubjects')->middleware('verified');
 
 
 Route::get('/profile', function () {
     return view('pages.profile');
 });
 
-Route::resource('semester','SemesterController');
-Route::resource('subject','SubjectController');
+Route::resource('semester','SemesterController')->except(['show'])->middleware('verified');
+Route::resource('subject','SubjectController')->middleware('verified');
+
+
 

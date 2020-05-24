@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Subject;
 use App\Semester;
+use App\User;
+use App\Note;
 
 class SubjectController extends Controller
 {
@@ -19,7 +21,16 @@ class SubjectController extends Controller
         // $notes = Note::orderBy('created_at','desc');
         return view('subjects.index')->withSubjects($subjects);
     }
-
+    public function subjects_filter($semester_id)
+    {
+        $note = Note::all();
+        $user = User::all();
+        $semester = Semester::all();
+        $subject = Subject::all();
+        $subject_filter = Subject::where('semester_id',$semester_id)->get();
+        return view('subjects.show')->withUser($user)->withNote($note)->withSemesters($semester)->withSubjects($subject)->withSubjectsoo($subject_filter)->with('semester_id',$semester_id);
+    }
+    // ->withUser($user)->withNote($note)->withSemesters($semester)->withSubjects($subject)
     /**
      * Show the form for creating a new resource.
      *

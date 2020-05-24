@@ -24,11 +24,25 @@ class NoteController extends Controller
     public function index()
     {
         // $notes = auth()->user()->notes;
-        $notes = Note::all();
+        // $notes = Note::all();
+        // $notes = Note::where('semester','1')->get();
+        $notes = Note::orderBy('created_at','desc')->get();
+        return view('notes.index')->withNotes($notes);
+
+    }
+    public function notes_filter($semester , $subject)
+    {
+        // $notes = auth()->user()->notes;
+        // $notes = Note::all();
+        $notes = Note::where([
+            ['semester_id',$semester],
+            ['subject_id',$subject]])
+            ->get();
         // $notes = Note::orderBy('created_at','desc');
         return view('notes.index')->withNotes($notes);
 
     }
+
     public function getSubjects($id){
         $subjects = Subject::where('semester_id',$id)->pluck("name","id");
         return json_encode($subjects);
@@ -56,7 +70,7 @@ class NoteController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'title'=>'required|max:100|min:10',
+            'title'=>'required|max:100',
             'description'=>'required',
             'semester'=>'required',
             'subject'=>'required',
@@ -81,8 +95,8 @@ class NoteController extends Controller
         $note = new Note;
         $note->title=$request->title;
         $note->description=$request->description;
-        $note->semester= $request->semester;
-        $note->subject= $request->subject;
+        $note->semester_id= $request->semester;
+        $note->subject_id= $request->subject;
         $note->user_id = auth()->user()->id;
         $note->pdf_file = $fileNameToStore;
         $note->save();
@@ -128,7 +142,7 @@ class NoteController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request,[
-            'title'=>'required|max:100|min:10',
+            'title'=>'required|max:100',
             'description'=>'required',
             'semester'=>'required',
             'subject'=>'required',
@@ -153,8 +167,8 @@ class NoteController extends Controller
         $note = Note::find($id);
         $note->title=$request->input('title');
         $note->description=$request->input('description');
-        $note->semester= $request->semester;
-        $note->subject= $request->subject;
+        $note->semester_id= $request->semester;
+        $note->subject_id= $request->subject;
         if($request->hasFile('pdf_file')){
             Storage::delete('public/pdf_files/'.$note->pdf_file);
             $note->pdf_file = $fileNameToStore;

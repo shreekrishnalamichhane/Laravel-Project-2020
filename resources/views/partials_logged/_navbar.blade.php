@@ -7,7 +7,7 @@
 
     <!-- Breadcrumb -->
     <div class="breadcrumb-dn mr-auto">
-      <p>Colab Learning</p>
+      <a href="/"><p>Colab Learning</p></a>
     </div>
 
     <div class="d-flex change-mode">

@@ -20,6 +20,7 @@ class SemesterController extends Controller
         return view('semester.index')->withSemesters($semesters);
     }
 
+
     /**
      * Show the form for creating a new resource.
      *
@@ -54,11 +55,11 @@ class SemesterController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        $semester = Semester::findOrFail($id);
-        return view('notes.show')->withsemester($semester);
-    }
+    // public function show($id)
+    // {
+    //     $semester = Semester::findOrFail($id);
+    //     return view('semester.show')->withsemester($semester);
+    // }
 
     /**
      * Show the form for editing the specified resource.

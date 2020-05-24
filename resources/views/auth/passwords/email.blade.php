@@ -6,6 +6,11 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">
+            @if (session('status'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('status') }}
+                </div>
+            @endif
             <form class="form" method="POST" action="{{ route('password.email') }}">
               @csrf
               <div class="card card-login card-hidden">

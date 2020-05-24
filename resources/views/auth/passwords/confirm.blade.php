@@ -12,17 +12,6 @@
                 <div class="card-header card-header-danger text-center">
                   <h4 class="card-title">Please Confirm your password</h4>
                   <h4 class="card-title">before proceeding.</h4>
-                  {{-- <div class="social-line">
-                    <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
-                      <i class="fa fa-facebook-square"></i>
-                    </a>
-                    <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
-                      <i class="fa fa-twitter"></i>
-                    </a>
-                    <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
-                      <i class="fa fa-google-plus"></i>
-                    </a>
-                  </div> --}}
                 </div>
                 <div class="card-body ">
                   <span class="bmd-form-group">

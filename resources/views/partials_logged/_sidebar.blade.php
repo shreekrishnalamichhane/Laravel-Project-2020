@@ -4,82 +4,20 @@
       <!-- Logo -->
       <li class="logo-sn waves-effect py-3">
         <div class="text-center">
-          <a href="#" class="pl-0"><img src="{{asset('assets_logged/img/logo/mdb-transaprent-noshadows.png')}}"></a>
+          <a href="/dashboard" class="pl-0"><img src="{{asset('assets_logged/img/logo/mdb-transaprent-noshadows.png')}}"></a>
         </div>
       </li>
-
-      <!-- Search Form -->
-      <li>
-        <form class="search-form" role="search">
-          <div class="md-form mt-0 waves-light">
-            <input type="text" class="form-control py-2" placeholder="Search">
-          </div>
-        </form>
-      </li>
-
       <!-- Side navigation links -->
       <li>
         <ul class="collapsible collapsible-accordion">
           <li>
-            <a href="/dashboard" class="collapsible-header waves-effect"><i class="w-fa far fa-bell"></i>Dashboard</a>
+            <a href="/dashboard" class="collapsible-header waves-effect"><i class="fas fa-chart-line"></i>Dashboard</a>
           </li>
           <li>
-            <a class="collapsible-header waves-effect arrow-r">
-              <i class="w-fa fas fa-tachometer-alt"></i>Notes<i class="fas fa-angle-down rotate-icon"></i>
-            </a>
-            <div class="collapsible-body">
-              <ul>
-                <li>
-                  <a href="/notes/semester1" class="waves-effect">Semester 1</a>
-                </li>
-                <li>
-                  <a href="/notes/semester2" class="waves-effect">Semester 2</a>
-                </li>
-                <li>
-                  <a href="/notes/semester3" class="waves-effect">Semester 3</a>
-                </li>
-                <li>
-                  <a href="/notes/semester4" class="waves-effect">Semester 4</a>
-                </li>
-                <li>
-                  <a href="/notes/semester5" class="waves-effect">Semester 5</a>
-                </li>
-                <li>
-                  <a href="/notes/semester6" class="waves-effect">Semester 6</a>
-                </li>
-                <li>
-                  <a href="/notes/semester7" class="waves-effect">Semester 7</a>
-                </li>
-                <li>
-                  <a href="/notes/semester8" class="waves-effect">Semester 8</a>
-                </li>
-              </ul>
-            </div>
+            <a href="/notes" class="collapsible-header waves-effect"><i class="fas fa-book-open"></i>Notes</a>
           </li>
           <li>
-            <a class="collapsible-header waves-effect arrow-r">
-              <i class="w-fa fas fa-image"></i>E-Books<i class="fas fa-angle-down rotate-icon"></i>
-            </a>
-            <div class="collapsible-body">
-              <ul>
-                <li>
-                  <a href="../pages/login.html" class="waves-effect">Login</a>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <!-- Simple link -->
-          <li>
-            <a class="collapsible-header waves-effect arrow-r">
-              <i class="w-fa fas fa-image"></i>Settings<i class="fas fa-angle-down rotate-icon"></i>
-            </a>
-            <div class="collapsible-body">
-              <ul>
-                <li>
-                  <a href="../pages/login.html" class="waves-effect">General settings</a>
-                </li>
-              </ul>
-            </div>
+            <a href="/ebooks" class="collapsible-header waves-effect"><i class="fas fa-laptop-code"></i>E- Books</a>
           </li>
         </ul>
       </li>

@@ -19,12 +19,12 @@ body{
       <div class="row">
         <div class="col-lg-4 mb-4">
           <div class="view overlay z-depth-1">
-            <a href="{{url('/notes')}}/{{$note->id}}?{{$note->title}}"><img src="{{asset('assets_logged/img/Photos/Others/img%20(38).jpg')}}" class="img-fluid" alt="First sample image"></a>
+            <a href="/subjectfilter/semester={{$note->semester_id}}"><img src="{{asset('assets_logged/img/Photos/Others/img%20(38).jpg')}}" class="img-fluid" alt="First sample image"></a>
           </div>
         </div>
         <div class="col-lg-7 mb-4">
-          <a href="#" class="teal-text">
-            <h6 class="pb-1"><i class="fas fa-heart"></i><strong> Lifestyle </strong></h6>
+          <a href="/notefilter/semester={{$note->semester_id}}&subject={{$note->subject_id}}" class="teal-text">
+                <h6 class="pb-1"><i class="fas fa-book"></i><strong>   {{$note->subject->name}}</strong></h6>
           </a>
           <a href="{{url('/notes')}}/{{$note->id}}?{{$note->title}}">
             <h4 class="mb-4" style="color: white;"><strong>{{$note->title}}</strong></h4>

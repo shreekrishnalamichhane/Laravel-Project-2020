@@ -18,8 +18,8 @@ class CreateNotesTable extends Migration
             $table->string('title');
             $table->text('description');
             $table->unsignedBigInteger('user_id');
-            $table->string('semester');
-            $table->string('subject');
+            $table->unsignedBigInteger('semester_id');
+            $table->unsignedBigInteger('subject_id');
             $table->string('pdf_file');
             $table->timestamps();
         });

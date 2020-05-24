@@ -8,7 +8,7 @@
             <h1 class="title">Combine Learning Platform</h1>
             <h4>Nepal's first online combine learning platform.</h4>
             <br>
-            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="btn btn-danger btn-raised btn-lg">
+            <a href="/dashboard" target="_blank" class="btn btn-danger btn-raised btn-lg">
               <i class="fa fa-play"></i> Get Started
             </a>
           </div>

@@ -473,9 +473,6 @@
               <p class="card-text mt-3">Some quick example text to build on the card title and make up the bulk of
                 the card's content.
               </p>
-
-              <button type="button" class="btn btn-info btn-rounded btn-sm" data-toggle="modal" data-target="#modalContactUser">Message<i
-                  class="fas fa-paper-plane ml-2"></i></button>
               <button type="button" class="btn btn-info btn-rounded btn-sm" data-toggle="modal" data-target="#modalEditProfile">Edit Profile<i
                   class="fas fa-paper-plane ml-2"></i></button>
             </div>
@@ -483,29 +480,6 @@
           </section>
           <!-- Section: Basic Info -->
 
-          <!-- Section: Achievements -->
-          <section class="card mb-4">
-            <div class="card-body text-center">
-
-              <h5><strong>John's Achievements</strong></h5>
-
-              <hr class="my-3">
-
-              <button type="button" class="btn btn-light-blue btn-rounded btn-sm px-3" data-toggle="modal"
-                data-target="#modalAchievment">Bootstrap Master</button>
-              <button type="button" class="btn btn-blue-grey btn-rounded btn-sm px-3" data-toggle="modal" data-target="#modalAchievment">WordPress
-                Master</button>
-              <button type="button" class="btn btn-default btn-rounded btn-sm px-3" data-toggle="modal" data-target="#modalAchievment">Angular
-                Master</button>
-              <button type="button" class="btn btn-secondary btn-rounded btn-sm px-3" data-toggle="modal" data-target="#modalAchievment">MDB
-                Expert</button>
-              <button type="button" class="btn btn-deep-purple btn-rounded btn-sm px-3" data-toggle="modal"
-                data-target="#modalAchievment">Community contributor</button>
-              <button type="button" class="btn btn-indigo btn-rounded btn-sm px-3" data-toggle="modal" data-target="#modalAchievment">MDB
-                Pro User</button>
-            </div>
-          </section>
-          <!-- Section: Achievements -->
 
           <!-- Section: Experience -->
           <section class="card mb-4">
