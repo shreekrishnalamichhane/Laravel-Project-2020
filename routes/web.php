@@ -28,15 +28,17 @@ Route::get('/contact', function () {
     return view('pages.contact');
 });
 
+Route::resource('profile','ProfileController')->middleware('verified');
+Route::POST('/profile/{id}/change_avatar','ProfileController@change_avatar')->middleware('verified');
 Route::resource('notes','NoteController')->middleware('verified');
 Route::get('/notefilter/semester={semester1}&subject={subject1}','NoteController@notes_filter');
 Route::get('/subjectfilter/semester={semester1}','SubjectController@subjects_filter');
 Route::get('/getSubjects/{id}','NoteController@getSubjects')->name('getSubjects')->middleware('verified');
 
 
-Route::get('/profile', function () {
-    return view('pages.profile');
-});
+// Route::get('/profile', function () {
+//     return view('pages.profile');
+// });
 
 Route::resource('semester','SemesterController')->except(['show'])->middleware('verified');
 Route::resource('subject','SubjectController')->middleware('verified');

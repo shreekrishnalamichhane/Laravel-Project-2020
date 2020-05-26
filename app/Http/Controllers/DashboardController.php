@@ -26,11 +26,11 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $note = Note::all();
-        $user = User::all();
-        $semester = Semester::all();
-        $subject = Subject::all();
+        $notes = Note::all();
+        $users = User::all();
+        $semesters = Semester::all();
+        $subjects = Subject::all();
         // $semester = DB::table('semesters')->where('id', '17');
-        return view('dashboard')->withUser($user)->withNote($note)->withSemesters($semester)->withSubjects($subject);
+        return view('dashboard')->withUser($users)->withNote($notes)->withSemesters($semesters)->withSubjects($subjects);
     }
 }

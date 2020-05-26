@@ -26,20 +26,23 @@ class NoteController extends Controller
         // $notes = auth()->user()->notes;
         // $notes = Note::all();
         // $notes = Note::where('semester','1')->get();
+        $filter_index = 0; //0 means not-filtering and 1 means filtering
+        $semesters = Semester::all();
+        $subjects = Subject::all();
         $notes = Note::orderBy('created_at','desc')->get();
-        return view('notes.index')->withNotes($notes);
+        return view('notes.index')->withNotes($notes)->with('semesters',$semesters)->with('subjects',$subjects)->with('filter_index',$filter_index);
 
     }
     public function notes_filter($semester , $subject)
     {
-        // $notes = auth()->user()->notes;
-        // $notes = Note::all();
+        $filter_index = 1; //0 means not-filtering and 1 means filtering
         $notes = Note::where([
             ['semester_id',$semester],
             ['subject_id',$subject]])
+            ->orderBy('created_at','desc')
             ->get();
-        // $notes = Note::orderBy('created_at','desc');
-        return view('notes.index')->withNotes($notes);
+        $semesters = Semester::all();
+        return view('notes.index')->withNotes($notes)->withSemesters($semesters)->with('filter_index',$filter_index);
 
     }
 
@@ -74,7 +77,7 @@ class NoteController extends Controller
             'description'=>'required',
             'semester'=>'required',
             'subject'=>'required',
-            'pdf_file' => 'required',
+            'pdf_file' => 'required|mimetypes:application/pdf|max:10000',
         ]);
 
         //handle file upload
@@ -146,7 +149,7 @@ class NoteController extends Controller
             'description'=>'required',
             'semester'=>'required',
             'subject'=>'required',
-            'pdf_file' => 'max:1999'
+            'pdf_file' => 'mimetypes:application/pdf|max:10000'
         ]);
             //handle file upload
         if($request->hasFile('pdf_file')){

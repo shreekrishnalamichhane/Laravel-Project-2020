@@ -36,7 +36,7 @@
                             <td>
                             <div class="row">
                                 <form action="{{url('subject/')}}/{{$subject->id}}/edit" >
-                                    <button type="submit" role="button" class="btn btn-green btn-rounded btn-sm px-3 text-white " value="Edit"><i class="fas fa-edit"></i></button>
+                                    <button type="submit" role="button" class="btn btn-green btn-round btn-sm px-3 text-white " value="Edit"><i class="fas fa-edit"></i></button>
                                 </form>
                                 {!! Form::open(['route'=>['subject.destroy',$subject->id],'method'=>'POST']) !!}
                                     @method('DELETE')

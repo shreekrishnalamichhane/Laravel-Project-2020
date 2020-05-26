@@ -268,33 +268,11 @@
 
             <!-- Header -->
             <div class="modal-header light-blue darken-3 white-text">
-              <h4 class=""><i class="far fa-newspaper"></i> New message</h4>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
 
             <!-- Body -->
             <div class="modal-body mb-0">
-
-              <!-- Subject -->
-              <div class="md-form form-sm">
-                <input type="text" id="modalFeedback1" class="form-control">
-                <label for="modalFeedback1" class="">Subject</label>
-              </div>
-
-              <!-- Topic -->
-              <select class="mdb-select colorful-select dropdown-primary">
-                <option value="" disabled selected>Choose category</option>
-                <option value="1">Idea</option>
-                <option value="2">Feedback</option>
-                <option value="3">Bug</option>
-              </select>
-
-              <!-- Message -->
-              <div class="md-form">
-                <textarea type="text" id="modalFeedback2" class="md-textarea" style="height: 300px;"></textarea>
-                <label for="modalFeedback2">Your message</label>
-              </div>
-
             </div>
 
             <!-- Footer -->

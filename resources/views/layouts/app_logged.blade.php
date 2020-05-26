@@ -4,13 +4,13 @@
     @include('partials_logged._head')
     @yield('additional_stylesheet')
 </head>
-<body class="fixed-sn navy-blue-skin dark-bg-admin">
+<body class="fixed-sn navy-blue-skin dark-bg-admin" >
 <header>
 
     @include('partials_logged._sidebar')
     @include('partials_logged._navbar')
 </header>
-<main>
+<main style="margin-right:20px;">
     @include('partials_logged._message')
     @yield('content')
 </main>

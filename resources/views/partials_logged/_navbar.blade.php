@@ -18,7 +18,7 @@
         <li class="nav-item dropdown notifications-nav">
           <a class="nav-link dropdown-toggle waves-effect" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span class="badge red">3</span> <i class="fas fa-bell"></i>
-            <span class="d-none d-md-inline-block">Notifications</span>
+            <span class=" d-md-inline-block">Notifications</span>
           </a>
           <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
             <a class="dropdown-item" href="#">
@@ -39,16 +39,17 @@
           </div>
         </li>
         <li class="nav-item">
-          <a href="/contact" class="nav-link waves-effect"><i class="fas fa-envelope"></i> <span class="clearfix d-none d-sm-inline-block">Contact</span></a>
+          <a href="/contact" class="nav-link waves-effect"><i class="fas fa-envelope"></i> <span class="clearfix d-sm-inline-block">Contact</span></a>
         </li>
         <li class="nav-item dropdown">
             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre><i class="fas fa-user"></i>
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                <img src="/storage/user_avatar/{{Auth::user()->avatar}}" alt="" style="height:25px; width:25px; top:10px; left:10px; border-radius:50%;">
                 {{ Auth::user()->name }} <span class="caret"></span>
             </a>
 
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="/profile" >
+                <a class="dropdown-item" href="/profile/{{Auth::user()->id}}" >
                     Profile
                 </a>
                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
