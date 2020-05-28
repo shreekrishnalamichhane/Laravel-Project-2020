@@ -110,6 +110,7 @@ body{
             </div>
             <div class="space-20"></div>
         @endforeach
+        {{ $notes->links() }}
     </div>
     <div class="col-3"></div>
 </div>

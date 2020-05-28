@@ -106,231 +106,71 @@
         <!-- Grid column -->
 
         <!-- Grid column -->
-        <div class="col-lg-6 col-md-12 text-center">
+        <div class="col-lg-6 col-md-12 ">
+            <div class="row d-flex">
+                <div class=" justify-content-center">
+                    <div class="space-40"></div>
+                    @foreach ($notes as $note)
+                        <div class="col-12">
+                            <div class="card" style="width:100%; background-color:#353b50;">
+                                <div class="row">
+                                    <div class="col-2">
+                                        <div class="avatar">
+                                            <img src="/storage/user_avatar/{{$note->user->avatar}}" style="height: auto;" class="rounded-circle img img-fluid p-3"  alt="First sample avatar image">
+                                        </div>
+                                    </div>
+                                    <div class="col-9">
+                                        <h4 class="mt-3 mb-1">{{$note->user->name}}</h4>
+                                        <h6 class="">{{$note->created_at}}</h6>
+                                    </div>
+                                    <div class="col-1">
+                                        <ul class="nav navbar-nav nav-flex-icons ml-auto">
+                                            <li class="nav-item dropdown">
+                                                <button role="button" type="button" class="btn btn-link rounded" data-toggle="dropdown" style="padding:0px;">
+                                                    <i class="fas fa-ellipsis-v mt-4 text-white"></i>
+                                                </button>
 
-          <!-- Heading -->
-          <div class="text-center mt-3 mb-5">
-
-            <h4 style="color: white;"><strong>{{$user[0]->name}}'s Notes</strong></h4>
-            @if($user_id == Auth::user()->id)
-                <button type="button" class="btn btn-info btn-rounded mt-4" data-toggle="modal" data-target="#modalSubmitProject">Submit new note <i class="far fa-image ml-1"></i></button>
-            @endif
-
-
-          </div>
-          <!-- Heading -->
-
-          <!-- Card row -->
-          <div class="card-deck">
-
-            <!-- Card -->
-            <div class="card card-cascade narrower card-ecommerce mb-5">
-
-              <!-- Card image -->
-              <div class="view view-cascade overlay">
-                <img src="{{asset('assets_logged/img/Mockups/Horizontal/6-col/pro-profile-page.jpg')}}" class="img-fluid"
-                  alt="">
-                <a href="#">
-                  <div class="mask"></div>
-                </a>
-              </div>
-
-              <!-- Card content -->
-              <div class="card-body card-body-cascade">
-
-                <!-- Title -->
-                <h4 class="card-title">Note name</h4>
-
-                <!-- Text -->
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                  card's
-                  content.
-                </p>
-
-              </div>
-
-              <!-- Card footer -->
-              <div class="card-footer links-light">
-                <span class="float-left pt-2">
-                  <a><i class="fas fa-share-alt mr-2"></i></a>
-                  <a><i class="fas fa-heart-o mr-2"></i>10</a>
-                </span>
-                <span class="float-right">
-                  <a href="#" class="waves-effect p-2">Live Preview <i class="far fa-image ml-1"></i></a>
-                </span>
-              </div>
-
+                                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                                    <a class="dropdown-item" href="/profile" >
+                                                        Profile
+                                                    </a>
+                                                    <a class="dropdown-item" href="/profile" >
+                                                        Profile
+                                                    </a>
+                                                    <a class="dropdown-item" href="/profile" >
+                                                        Profile
+                                                    </a>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="space-20"></div>
+                                <div class="row ml-3">
+                                    <div class="col-12 ml-4">
+                                        <h4  class=" text-white">{{$note->title}}</h4>
+                                    </div>
+                                    <div class="col-12 ml-4">
+                                        <p>{{$note->description}}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-10">
+                                        <a href="/notefilter/semester={{$note->semester_id}}&subject={{$note->subject_id}}" class="chip cyan  waves-effect waves-effect ml-5 text-white">
+                                            <i class="fas fa-book-reader"></i>  <strong>{{$note->subject->name}}</strong>
+                                        </a>
+                                    </div>
+                                    <div class="col-2">
+                                        <a href="{{url('/notes')}}/{{$note->id}}?{{$note->title}}"  target="_blank" type="button" class="btn-floating btn-small waves-effect waves-light btn-purple float-right" data-toggle="tooltip" data-placement="top" title="" data-original-title="View"><i class="fas fa-eye"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="space-20"></div>
+                    @endforeach
+                    {{$notes->links()}}
+                </div>
             </div>
-            <!-- Card -->
-
-            <!-- Card -->
-            <div class="card card-cascade narrower card-ecommerce d-flex mb-5">
-
-              <!-- Card image -->
-              <div class="view view-cascade overlay">
-                <img src="{{asset('assets_logged/img/Mockups/Horizontal/6-col/pro-signup.jpg')}}" class="img-fluid" alt="">
-                <a href="#">
-                  <div class="mask"></div>
-                </a>
-              </div>
-
-              <!-- Card content -->
-              <div class="card-body card-body-cascade">
-
-                <!-- Title -->
-                <h4 class="card-title">Note name</h4>
-
-                <!-- Text -->
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                  card's
-                  content.
-                </p>
-              </div>
-
-              <!-- Card footer -->
-              <div class="card-footer links-light">
-                <span class="float-left pt-2">
-                  <a><i class="fas fa-share-alt mr-2"></i></a>
-                  <a><i class="fas fa-heart-o mr-2"></i>10</a>
-                </span>
-                <span class="float-right">
-                  <a href="#" class="waves-effect p-2">Live Preview <i class="far fa-image ml-1"></i></a>
-                </span>
-              </div>
-
-            </div>
-            <!-- Card -->
-
-          </div>
-          <!-- Card row -->
-
-          <!-- Card row -->
-          <div class="card-deck">
-
-            <!-- Card -->
-            <div class="card card-cascade narrower card-ecommerce d-flex mb-5">
-
-              <!-- Card image -->
-              <div class="view view-cascade overlay">
-                <img src="{{asset('assets_logged/img/Mockups/Horizontal/6-col/pro-pricing.jpg')}}" class="img-fluid" alt="">
-                <a href="#">
-                  <div class="mask"></div>
-                </a>
-              </div>
-
-              <!-- Card content -->
-              <div class="card-body card-body-cascade">
-
-                <!-- Title -->
-                <h4 class="card-title">Note name</h4>
-
-                <!-- Text -->
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                  card's
-                  content.
-                </p>
-
-              </div>
-
-              <!-- Card footer -->
-              <div class="card-footer links-light">
-
-                <span class="float-left pt-2">
-                  <a><i class="fas fa-share-alt mr-2"></i></a>
-                  <a><i class="fas fa-heart-o mr-2"></i>10</a>
-                </span>
-
-                <span class="float-right">
-                  <a href="#" class="waves-effect p-2">Live Preview <i class="far fa-image ml-1"></i></a>
-                </span>
-
-              </div>
-
-            </div>
-            <!-- Card -->
-
-            <!-- Card -->
-            <div class="card card-cascade narrower card-ecommerce d-flex mb-5">
-
-              <!-- Card image -->
-              <div class="view view-cascade overlay">
-                <img src="{{asset('assets_logged/img/Mockups/Horizontal/6-col/pro-landing.jpg')}}" class="img-fluid" alt="">
-                <a href="#">
-                  <div class="mask"></div>
-                </a>
-              </div>
-
-              <!-- Card content -->
-              <div class="card-body card-body-cascade">
-
-                <!-- Title -->
-                <h4 class="card-title">Note name</h4>
-
-                <!-- Text -->
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                  card's
-                  content.
-                </p>
-
-              </div>
-
-              <!-- Card footer -->
-              <div class="card-footer links-light">
-
-                <span class="float-left pt-2">
-                  <a><i class="fas fa-share-alt mr-2"></i></a>
-                  <a><i class="fas fa-heart-o mr-2"></i>10</a>
-                </span>
-
-                <span class="float-right">
-                  <a href="#" class="waves-effect p-2">Live Preview <i class="far fa-image ml-1"></i></a>
-                </span>
-              </div>
-
-            </div>
-            <!-- Card -->
-
-          </div>
-          <!-- Card row -->
-
-          <!-- Pagination -->
-          <nav class="my-4 d-flex justify-content-center">
-
-            <ul class="pagination pagination-circle pg-blue mb-0">
-
-              <!-- First -->
-              <li class="page-item disabled clearfix d-none d-md-block"><a class="page-link">First</a></li>
-
-              <!-- Arrow left -->
-              <li class="page-item disabled">
-                <a class="page-link" aria-label="Previous">
-                  <span aria-hidden="true">&laquo;</span>
-                  <span class="sr-only">Previous</span>
-                </a>
-              </li>
-
-              <!-- Numbers -->
-              <li class="page-item active"><a class="page-link">1</a></li>
-              <li class="page-item"><a class="page-link">2</a></li>
-              <li class="page-item"><a class="page-link">3</a></li>
-              <li class="page-item"><a class="page-link">4</a></li>
-              <li class="page-item"><a class="page-link">5</a></li>
-
-              <!-- Arrow right -->
-              <li class="page-item">
-                <a class="page-link" aria-label="Next">
-                  <span aria-hidden="true">&raquo;</span>
-                  <span class="sr-only">Next</span>
-                </a>
-              </li>
-
-              <!-- First -->
-              <li class="page-item clearfix d-none d-md-block"><a class="page-link">Last</a></li>
-
-            </ul>
-          </nav>
-          <!-- Pagination -->
-
         </div>
         <!-- Grid column -->
 

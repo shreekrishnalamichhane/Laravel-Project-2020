@@ -7,6 +7,7 @@ use App\Note;
 use App\Semester;
 use App\Subject;
 use Illuminate\Support\Facades\Storage;
+use DB;
 
 class NoteController extends Controller
 {
@@ -29,8 +30,8 @@ class NoteController extends Controller
         $filter_index = 0; //0 means not-filtering and 1 means filtering
         $semesters = Semester::all();
         $subjects = Subject::all();
-        $notes = Note::orderBy('created_at','desc')->get();
-        return view('notes.index')->withNotes($notes)->with('semesters',$semesters)->with('subjects',$subjects)->with('filter_index',$filter_index);
+        $notes = Note::orderBy('created_at','desc')->paginate(10);
+        return view('notes.index')->with('notes',$notes)->with('semesters',$semesters)->with('subjects',$subjects)->with('filter_index',$filter_index);
 
     }
     public function notes_filter($semester , $subject)
@@ -40,7 +41,7 @@ class NoteController extends Controller
             ['semester_id',$semester],
             ['subject_id',$subject]])
             ->orderBy('created_at','desc')
-            ->get();
+            ->paginate(1);
         $semesters = Semester::all();
         return view('notes.index')->withNotes($notes)->withSemesters($semesters)->with('filter_index',$filter_index);
 

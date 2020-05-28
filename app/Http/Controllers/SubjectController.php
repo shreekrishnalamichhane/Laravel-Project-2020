@@ -23,12 +23,12 @@ class SubjectController extends Controller
     }
     public function subjects_filter($semester_id)
     {
-        $note = Note::all();
-        $user = User::all();
-        $semester = Semester::all();
-        $subject = Subject::all();
+        $notes = Note::all();
+        $users = User::all();
+        $semesters = Semester::all();
+        $subjects = Subject::all();
         $subject_filter = Subject::where('semester_id',$semester_id)->get();
-        return view('subjects.show')->withUser($user)->withNote($note)->withSemesters($semester)->withSubjects($subject)->withSubjectsoo($subject_filter)->with('semester_id',$semester_id);
+        return view('subjects.show')->with('users',$users)->with('notes',$notes)->with('semesters',$semesters)->with('subjects',$subjects)->with('subjectsoo',$subject_filter)->with('semester_id',$semester_id);
     }
     // ->withUser($user)->withNote($note)->withSemesters($semester)->withSubjects($subject)
     /**

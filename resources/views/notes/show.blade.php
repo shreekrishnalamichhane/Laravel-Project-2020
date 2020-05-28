@@ -125,20 +125,20 @@ body{
                         </div>
                     </div>
                     <div class="card" style="width: 100%;">
-                            <?php
-                            $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-                            ?>
-                            <div class="row d-none " id="show_shorten_url" >
-                                <div class="col-10">
-                                    <div class="md-form">
-                                        <input type="text" id="link" class="form-control mx-3" value="">
-                                    </div>
-                                </div>
-                                <div class="col-1">
-                                    <a type="button" id="ClipboardCopyBtn" class="btn-floating btn-small waves-effect waves-light btn-purple" data-toggle="tooltip" data-placement="top" title="" data-original-title="Copy Link to ClipBoard" onclick="CopyLinkToClipboard()"><i class="far fa-clipboard"></i></a>
+                        <?php
+                        $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+                        ?>
+                        <div class="row d-none " id="show_shorten_url" >
+                            <div class="col-10">
+                                <div class="md-form">
+                                    <input type="text" id="link" class="form-control mx-3" value="">
                                 </div>
                             </div>
-                            <button class="btn btn-primary " type="button" id="shorten_request_btn" onclick="GetShortLink();">Get Short Url</button>
+                            <div class="col-1">
+                                <a type="button" id="ClipboardCopyBtn" class="btn-floating btn-small waves-effect waves-light btn-purple" data-toggle="tooltip" data-placement="top" title="" data-original-title="Copy Link to ClipBoard" onclick="CopyLinkToClipboard()"><i class="far fa-clipboard"></i></a>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary " type="button" id="shorten_request_btn" onclick="GetShortLink();">Get Short Url</button>
                     </div>
                 </div>
             </div>
