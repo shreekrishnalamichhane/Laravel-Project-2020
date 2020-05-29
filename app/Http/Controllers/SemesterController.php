@@ -14,6 +14,9 @@ class SemesterController extends Controller
      */
     public function index()
     {
+        if(auth()->user()->user_role != "admin"){
+            abort(404);
+        }
         // $notes = auth()->user()->notes;
         $semesters = Semester::all();
         // $notes = Note::orderBy('created_at','desc');
@@ -28,6 +31,9 @@ class SemesterController extends Controller
      */
     public function create()
     {
+        if(auth()->user()->user_role != "admin"){
+            abort(404);
+        }
         return view('semester.create');
     }
 
@@ -39,6 +45,9 @@ class SemesterController extends Controller
      */
     public function store(Request $request)
     {
+        if(auth()->user()->user_role != "admin"){
+            abort(404);
+        }
         $this->validate($request,[
             'name'=>'required|unique:semesters',
         ]);
@@ -69,6 +78,9 @@ class SemesterController extends Controller
      */
     public function edit($id)
     {
+        if(auth()->user()->user_role != "admin"){
+            abort(404);
+        }
         $semester = Semester::findOrFail($id);
         return view('semester.edit')->withSemester($semester);
     }
@@ -82,6 +94,9 @@ class SemesterController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if(auth()->user()->user_role != "admin"){
+            abort(404);
+        }
         $this->validate($request,[
             'name'=>'required|unique:semesters',
         ]);
@@ -100,6 +115,9 @@ class SemesterController extends Controller
      */
     public function destroy($id)
     {
+        if(auth()->user()->user_role != "admin"){
+            abort(404);
+        }
         $semester = Semester::find($id);
         $semester -> delete();
         session()->flash('success','Semester Deleted Successfully');

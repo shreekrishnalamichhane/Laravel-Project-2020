@@ -14,7 +14,7 @@
                     <i class="fas fa-chart-line warning-color mr-3 z-depth-2 text-white"></i>
                     <div class="data">
                     <p class="text-uppercase text-white">Total Users</p>
-                    <h4 class="font-weight-bold dark-grey-text text-white">{{count($user)}}</h4>
+                    <h4 class="font-weight-bold dark-grey-text text-white">{{count($users)}}</h4>
                     </div>
                 </div>
             </div>
@@ -25,7 +25,7 @@
                     <i class="far fa-money-bill-alt primary-color mr-3 z-depth-2 text-white"></i>
                     <div class="data">
                     <p class="text-uppercase text-white">Total Notes</p>
-                    <h4 class="font-weight-bold dark-grey-text text-white">{{count($note)}}</h4>
+                    <h4 class="font-weight-bold dark-grey-text text-white">{{count($notes)}}</h4>
                     </div>
                 </div>
             </div>

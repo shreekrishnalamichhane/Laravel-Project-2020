@@ -132,10 +132,12 @@
         </a>
     </div>
     <div class="space-50"></div>
+    @if(auth()->user()->user_role == "admin")
     <a href="/notes" class="btn btn-purple float-right">Notes</a>
     <a href="/semester" class="btn btn-purple float-right">Semester</a>
     <a href="/subject" class="btn btn-purple float-right">Subject</a>
     <div class="space-100"></div>
+    @endif
     <h3 class="text-center text " style="color: white;">Please Choose your Semester</h3>
     <div class="row justify-content-center">
         @foreach ($semesters as $semester)

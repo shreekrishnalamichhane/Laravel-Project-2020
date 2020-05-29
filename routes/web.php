@@ -28,7 +28,7 @@ Route::get('/contact', function () {
     return view('pages.contact');
 });
 
-Route::resource('profile','ProfileController')->middleware('verified');
+Route::resource('profile','ProfileController')->only('show')->middleware('verified');
 Route::POST('/profile/{id}/change_avatar','ProfileController@change_avatar')->middleware('verified');
 Route::resource('notes','NoteController')->middleware('verified');
 Route::get('/notefilter/semester={semester1}&subject={subject1}','NoteController@notes_filter');

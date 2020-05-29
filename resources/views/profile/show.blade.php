@@ -110,9 +110,17 @@
             <div class="row d-flex">
                 <div class=" justify-content-center">
                     <div class="space-40"></div>
+                    {{-- {{dd($notes)}} --}}
+                    @if(count($notes) < 1)
+                    <h1 class="text-center text-white ">There is no notes
+
+
+                    </h1>
+                    @else
                     @foreach ($notes as $note)
                         <div class="col-12">
                             <div class="card" style="width:100%; background-color:#353b50;">
+
                                 <div class="row">
                                     <div class="col-2">
                                         <div class="avatar">
@@ -169,6 +177,7 @@
                         <div class="space-20"></div>
                     @endforeach
                     {{$notes->links()}}
+                    @endif
                 </div>
             </div>
         </div>

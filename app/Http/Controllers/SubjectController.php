@@ -17,6 +17,9 @@ class SubjectController extends Controller
      */
     public function index()
     {
+        if(auth()->user()->user_role != "admin"){
+            abort(404);
+        }
         $subjects = Subject::all();
         // $notes = Note::orderBy('created_at','desc');
         return view('subjects.index')->withSubjects($subjects);
@@ -38,6 +41,9 @@ class SubjectController extends Controller
      */
     public function create()
     {
+        if(auth()->user()->user_role != "admin"){
+            abort(404);
+        }
         $semester = Semester::all();
         return view('subjects.create')->withSemesters($semester);
     }
@@ -50,6 +56,9 @@ class SubjectController extends Controller
      */
     public function store(Request $request)
     {
+        if(auth()->user()->user_role != "admin"){
+            abort(404);
+        }
         $this->validate($request,[
             'name'=>'required',
             'semester'=>'required',
@@ -70,6 +79,9 @@ class SubjectController extends Controller
      */
     public function show($id)
     {
+        if(auth()->user()->user_role != "admin"){
+            abort(404);
+        }
         $subject = Subject::findOrFail($id);
         return view('subjects.show')->withSubject($subject);
     }
@@ -82,6 +94,9 @@ class SubjectController extends Controller
      */
     public function edit($id)
     {
+        if(auth()->user()->user_role != "admin"){
+            abort(404);
+        }
         $subject = Subject::findOrFail($id);
         $semester = Semester::all();
         return view('subjects.edit')->withSubject($subject)->withSemesters($semester);
@@ -96,6 +111,9 @@ class SubjectController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if(auth()->user()->user_role != "admin"){
+            abort(404);
+        }
         $this->validate($request,[
             'name'=>'required',
             'semester'=>'required',
@@ -116,6 +134,9 @@ class SubjectController extends Controller
      */
     public function destroy($id)
     {
+        if(auth()->user()->user_role != "admin"){
+            abort(404);
+        }
         $subject = Subject::find($id);
         $subject -> delete();
         session()->flash('success','Subject Deleted Successfully');

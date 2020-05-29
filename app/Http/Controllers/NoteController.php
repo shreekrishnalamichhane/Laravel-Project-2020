@@ -41,7 +41,7 @@ class NoteController extends Controller
             ['semester_id',$semester],
             ['subject_id',$subject]])
             ->orderBy('created_at','desc')
-            ->paginate(1);
+            ->paginate(10);
         $semesters = Semester::all();
         return view('notes.index')->withNotes($notes)->withSemesters($semesters)->with('filter_index',$filter_index);
 
@@ -133,6 +133,9 @@ class NoteController extends Controller
         $note = Note::findOrFail($id);
         $semesters = Semester::all();
         $subjects = Subject::all();
+        if($note->user_id != auth()->user()->id){
+            abort(403);
+        }
         return view('notes.edit')->withNote($note)->with('semesters',$semesters)->with('subjects',$subjects);
     }
 
@@ -169,6 +172,9 @@ class NoteController extends Controller
 
 
         $note = Note::find($id);
+        if($note->user_id != auth()->user()->id){
+            abort(403);
+        }
         $note->title=$request->input('title');
         $note->description=$request->input('description');
         $note->semester_id= $request->semester;
@@ -191,6 +197,9 @@ class NoteController extends Controller
     public function destroy($id)
     {
         $note = Note::find($id);
+        if($note->user_id != auth()->user()->id){
+            abort(403);
+        }
         Storage::delete('public/pdf_files/'.$note->pdf_file);
         $note -> delete();
         session()->flash('success','Note Deleted Successfully');
