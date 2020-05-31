@@ -30,7 +30,6 @@ class DashboardController extends Controller
         $users = User::all();
         $semesters = Semester::all();
         $subjects = Subject::all();
-        // $semester = DB::table('semesters')->where('id', '17');
         return view('dashboard')->withUser($users)->withNote($notes)->withSemesters($semesters)->withSubjects($subjects);
     }
 }

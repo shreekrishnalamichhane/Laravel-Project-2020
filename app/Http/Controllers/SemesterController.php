@@ -17,9 +17,7 @@ class SemesterController extends Controller
         if(auth()->user()->user_role != "admin"){
             abort(404);
         }
-        // $notes = auth()->user()->notes;
         $semesters = Semester::all();
-        // $notes = Note::orderBy('created_at','desc');
         return view('semester.index')->withSemesters($semesters);
     }
 

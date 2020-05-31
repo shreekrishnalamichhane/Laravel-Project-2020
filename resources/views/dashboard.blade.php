@@ -138,7 +138,7 @@
     <a href="/subject" class="btn btn-purple float-right">Subject</a>
     <div class="space-100"></div>
     @endif
-    <h3 class="text-center text " style="color: white;">Please Choose your Semester</h3>
+    <h3 class="text-center text " style="color: white;">Please choose the semester</h3>
     <div class="row justify-content-center">
         @foreach ($semesters as $semester)
             <a href="/subjectfilter/semester={{$semester->id}}"><div class="top-droppable folder tooltiper tooltiper-up" data-tooltip="0 file" id="{{'folder'.($semester->id%4)}}"><i class="fa fa-folder" aria-hidden="true"></i><i class="fa fa-check" aria-hidden="true"></i><p>{{$semester->name}}</p></div></a>

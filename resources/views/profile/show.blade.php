@@ -72,36 +72,6 @@
           </section>
           <!-- Section: Basic Info -->
 
-
-          <!-- Section: Experience -->
-          <section class="card mb-4">
-            <div class="card-body">
-
-              <h5 class="text-center mb-4"><strong>{{$user[0]->name}}'s Contributions </strong></h5>
-
-              <ul class="list-unstyled pt-4">
-                <li>
-                  <p>Questions <span class="badge badge-primary pull-right">14</span></p>
-                </li>
-                <hr>
-                <li>
-                  <p>Answers <span class="badge badge-primary pull-right">14</span></p>
-                </li>
-                <hr>
-                <li>
-                  <p>Submited projects <span class="badge badge-primary pull-right">14</span></p>
-                </li>
-                <hr>
-                <li>
-                  <p>Pull requests <span class="badge badge-primary pull-right">14</span></p>
-                </li>
-
-              </ul>
-
-            </div>
-          </section>
-          <!-- Section: Experience -->
-
         </div>
         <!-- Grid column -->
 
@@ -112,10 +82,7 @@
                     <div class="space-40"></div>
                     {{-- {{dd($notes)}} --}}
                     @if(count($notes) < 1)
-                    <h1 class="text-center text-white ">There is no notes
-
-
-                    </h1>
+                    <h1 class="text-center text-white ">There is no notes.</h1>
                     @else
                     @foreach ($notes as $note)
                         <div class="col-12">

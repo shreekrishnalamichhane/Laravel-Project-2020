@@ -24,8 +24,9 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-10 col-md-10 col-sm-12 ml-auto mr-auto">
-                        {!! Form::open(['route'=>'notes.store','method'=>'POST','enctype'=> 'multipart/form-data']) !!}
-                            <div class="md-form">
+                        {!! Form::model($note,['route'=>['notes.update',$note->id],'method'=>'POST','enctype'=> 'multipart/form-data']) !!}
+                            @method('PATCH')
+                        <div class="md-form">
                                 <input type="text" id="title" class="form-control" name="title" value="{{$note->title}}" style="color: rgb(182, 182, 182);">
                                 <label for="title" class="text-white">Note Title</label>
                             </div>
@@ -93,44 +94,7 @@
         });
     });
 </script>
-<script src='https://unpkg.com/vue@2.6.10/dist/vue.js'></script>
-<script src='https://unpkg.com/vuetify@1.5.16/dist/vuetify.min.js'></script>
-<script id="rendered-js">
-    Vue.prototype.$vuetify = Object.assign(Vue.prototype.$vuetify, {
-      theme: {
-        primary: '#3f51b5',
-        secondary: '#b0bec5' },
 
-      options: {
-        customProperties: true } });
-    new Vue({
-      el: '#app',
-      data: () => ({
-        defaultButtonText: 'Upload File',
-        selectedFile: null,
-        isSelecting: false }),
-
-      computed: {
-        buttonText() {
-          return this.selectedFile ? this.selectedFile.name : this.defaultButtonText;
-        } },
-
-      methods: {
-        onButtonClick() {
-          this.isSelecting = true;
-          window.addEventListener('focus', () => {
-            this.isSelecting = false;
-          }, { once: true });
-
-          this.$refs.uploader.click();
-        },
-        onFileChanged(e) {
-          this.selectedFile = e.target.files[0];
-
-          // do something
-        } } });
-    //# sourceURL=pen.js
-</script>
 @endsection
 
 
